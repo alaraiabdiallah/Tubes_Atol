@@ -20,7 +20,7 @@
             foreach(getCarts() as $cart){
                 $values[] = "(NULL,'$last_id','".$cart['id']."','".$cart['qty']."')";
             }
-            $insertDetailSql = "INSERT INTO order_details VALUES "implode(",",$values)";"; 
+            $insertDetailSql = "INSERT INTO order_details VALUES ".implode(",",$values).";"; 
             $orderDetailQuery = $db->query($insertDetailSql);
             if(!$orderDetailQuery)
                 throw new Exception("Insert order detail Failed");
