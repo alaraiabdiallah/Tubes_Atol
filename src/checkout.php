@@ -16,11 +16,11 @@
             if(!$orderQuery)
                 throw new Exception("Insert order Failed"); 
             $last_id = $db->insert_id;
-            $values = "";
+            $values = [];
             foreach(getCarts() as $cart){
-                $values .= "(NULL,'$last_id','".$cart['id']."','".$cart['qty']."')";
+                $values[] = "(NULL,'$last_id','".$cart['id']."','".$cart['qty']."')";
             }
-            $insertDetailSql = "INSERT INTO order_details VALUES $values;"; 
+            $insertDetailSql = "INSERT INTO order_details VALUES "implode(",",$values)";"; 
             $orderDetailQuery = $db->query($insertDetailSql);
             if(!$orderDetailQuery)
                 throw new Exception("Insert order detail Failed");
