@@ -1,0 +1,12 @@
+.product-list-item{
+    margin-bottom: 10px;
+}
+
+.product-list-item .card-img-top{
+    max-height: 200px;
+}
+
+.product-detail .price{
+    font-weight: bold;
+    font-size: 1.3em;
+}
